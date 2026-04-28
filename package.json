@@ -1,6 +1,6 @@
 {
   "name": "com.mame8.animator-controller-ma-context",
-  "version": "1.0.0",
+  "version": "0.1.0",
   "displayName": "AnimatorController MA Context",
   "description": "アバターのAnimatorController・Modular Avatar・VRCコンポーネントの構成と設定内容をテキスト形式でコンテキスト化するUnity Editorツール",
   "unity": "2022.3",
