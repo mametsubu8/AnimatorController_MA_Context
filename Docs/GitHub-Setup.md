@@ -42,7 +42,7 @@ git config core.worktree Assets/AnimatorControllerMAContext
 set GIT_WORK_TREE=Assets/AnimatorControllerMAContext
 
 git add -A
-git commit -m "feat: Initial release v1.0.0 — AnimatorController MA Context"
+git commit -m "feat: Initial release v0.1.0 — AnimatorController MA Context"
 ```
 
 ### 3. GitHub リポジトリ作成 & プッシュ
@@ -66,8 +66,8 @@ git push -u origin main
 ### 5. 初回リリース
 
 ```bash
-git tag v1.0.0
-git push origin v1.0.0
+git tag v0.1.0
+git push origin v0.1.0
 ```
 
 GitHub Actions が自動実行:
@@ -78,29 +78,18 @@ GitHub Actions が自動実行:
 
 `https://mametsubu8.github.io/AnimatorController_MA_Context/` にアクセスして確認。
 
-## Base Package の VPM リスティングに統合する場合
+## 統合 VPM リスティング
 
-Base (`AnimatorController_Context`) の `Website/source.json` に MA パッケージも追加:
+mametsubu の全パッケージは専用リポ `mametsubu8/vpm-listing` で統合管理されています。
 
-```json
-{
-  "name": "AnimatorController Tools",
-  "id": "com.mame8.vpm",
-  "url": "https://mametsubu8.github.io/AnimatorController_Context/vpm.json",
-  "author": "mame8",
-  "packages": {
-    "com.mame8.animator-controller-context": {
-      "versions": {}
-    },
-    "com.mame8.animator-controller-ma-context": {
-      "versions": {}
-    }
-  }
-}
-```
+- 統合リスティングURL: `https://mametsubu8.github.io/vpm-listing/vpm.json`
+- VCC表示名: `mametsubu`
+- 対象パッケージ: `com.mame8.animator-controller-context`, `com.mame8.animator-controller-ma-context`
+- 更新頻度: 6時間ごとの自動再ビルド + 手動dispatch
 
-Base の `build-listing.yml` も MA リポのリリースを取得するよう拡張が必要。
-これにより、ユーザーは VCC に1つのソースを追加するだけで両パッケージが見える。
+ユーザーは VCC に統合リスティングURL を1つ追加するだけで、両パッケージが利用可能になります。
+
+各パッケージリポの `build-listing.yml` も引き続き動作しており、個別リスティング（`https://mametsubu8.github.io/AnimatorController_MA_Context/vpm.json`）も利用可能です。
 
 ## 日常の開発フロー
 

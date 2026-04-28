@@ -37,10 +37,26 @@ AnimatorControllerのシリアライズには [AnimatorController Context](https
 
 AnimatorController Context パッケージがインストール済みであること。
 
-### VCC (VRChat Creator Companion) 経由
+### VCC (VRChat Creator Companion) - 推奨
 
-1. VCCにリポジトリを追加
-2. プロジェクトの「Manage Project」から `AnimatorController MA Context` を追加
+**統合リポジトリ（推奨）:**
+
+VCCの Settings > Packages > Add Repository から以下のURLを追加:
+```
+https://mametsubu8.github.io/vpm-listing/vpm.json
+```
+mametsubuの全パッケージ（AnimatorController Context, AnimatorController MA Context）が一括で利用可能になります。依存パッケージの AnimatorController Context も同時にインストールできます。
+
+**個別リポジトリ:**
+
+以下のURLをブラウザで開き「Add to VCC」をクリック:
+```
+https://mametsubu8.github.io/AnimatorController_MA_Context/
+```
+または、VCCの Settings > Packages > Add Repository から以下のURLを追加:
+```
+https://mametsubu8.github.io/AnimatorController_MA_Context/vpm.json
+```
 
 ### Unity Package Manager 経由
 
