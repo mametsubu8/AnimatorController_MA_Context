@@ -1,0 +1,108 @@
+name: Build VPM Listing
+
+on:
+  workflow_dispatch:
+  workflow_run:
+    workflows: ["Build Release"]
+    types:
+      - completed
+  release:
+    types: [published, edited, deleted]
+
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+concurrency:
+  group: "pages"
+  cancel-in-progress: true
+
+jobs:
+  build-listing:
+    runs-on: ubuntu-latest
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Read package info
+        id: pkg
+        run: |
+          PKG_NAME=$(jq -r '.name' package.json)
+          echo "name=${PKG_NAME}" >> $GITHUB_OUTPUT
+
+      - name: Fetch all releases
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          gh api repos/${{ github.repository }}/releases --jq '
+            [.[] | select(.draft == false) | {
+              tag: .tag_name,
+              assets: [.assets[] | {name: .name, url: .browser_download_url}]
+            }]' > releases.json
+
+      - name: Build VPM listing
+        run: |
+          PKG_NAME="${{ steps.pkg.outputs.name }}"
+          REPO_URL="https://${{ github.repository_owner }}.github.io/${{ github.event.repository.name }}"
+
+          # Start with source.json template
+          LISTING=$(cat Website/source.json)
+
+          # Update URL in listing
+          LISTING=$(echo "$LISTING" | jq --arg url "${REPO_URL}/vpm.json" '.url = $arg')
+
+          # Build versions object from releases
+          VERSIONS="{}"
+          while IFS= read -r release; do
+            TAG=$(echo "$release" | jq -r '.tag')
+            VERSION="${TAG#v}"
+            ZIP_URL=$(echo "$release" | jq -r --arg pkg "$PKG_NAME" '.assets[] | select(.name | contains($pkg)) | .url')
+
+            if [ -n "$ZIP_URL" ] && [ "$ZIP_URL" != "null" ]; then
+              # Download zip to compute SHA256
+              curl -sL "$ZIP_URL" -o temp.zip
+              SHA256=$(sha256sum temp.zip | cut -d' ' -f1)
+
+              # Read package.json from the zip
+              PKG_JSON=$(unzip -p temp.zip package.json 2>/dev/null || echo '')
+              if [ -z "$PKG_JSON" ]; then
+                # Fallback: use repo's package.json with updated version
+                PKG_JSON=$(cat package.json | jq --arg v "$VERSION" '.version = $v')
+              fi
+              rm -f temp.zip
+
+              # Add url and zipSHA256 to the version entry
+              VERSION_ENTRY=$(echo "$PKG_JSON" | jq \
+                --arg url "$ZIP_URL" \
+                --arg sha "$SHA256" \
+                '. + {url: $url, zipSHA256: $sha}')
+
+              VERSIONS=$(echo "$VERSIONS" | jq \
+                --arg ver "$VERSION" \
+                --argjson entry "$VERSION_ENTRY" \
+                '. + {($ver): $entry}')
+            fi
+          done < <(jq -c '.[]' releases.json)
+
+          # Assemble final listing
+          LISTING=$(echo "$LISTING" | jq \
+            --arg pkg "$PKG_NAME" \
+            --argjson versions "$VERSIONS" \
+            '.packages[$pkg].versions = $versions')
+
+          # Copy website files and add listing
+          mkdir -p _site
+          cp -r Website/* _site/ 2>/dev/null || true
+          echo "$LISTING" | jq '.' > _site/vpm.json
+
+      - name: Upload Pages artifact
+        uses: actions/upload-pages-artifact@v3
+        with:
+          path: _site
+
+      - name: Deploy to GitHub Pages
+        id: deployment
+        uses: actions/deploy-pages@v4
