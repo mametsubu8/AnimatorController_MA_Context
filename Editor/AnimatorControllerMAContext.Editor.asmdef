@@ -1,0 +1,33 @@
+{
+  "name": "AnimatorControllerMAContext.Editor",
+  "rootNamespace": "AnimatorControllerMAContext.Editor",
+  "references": [
+    "AnimatorControllerContext.Editor",
+    "VRC.SDK3A",
+    "VRC.SDKBase",
+    "VRC.SDK3.Dynamics.PhysBone",
+    "VRC.SDK3.Dynamics.Contact",
+    "nadena.dev.modular-avatar.core",
+    "nadena.dev.ndmf.runtime"
+  ],
+  "includePlatforms": ["Editor"],
+  "excludePlatforms": [],
+  "allowUnsafeCode": false,
+  "overrideReferences": false,
+  "precompiledReferences": [],
+  "autoReferenced": true,
+  "defineConstraints": [],
+  "versionDefines": [
+    {
+      "name": "com.vrchat.avatars",
+      "expression": "",
+      "define": "AMAC_VRC_SDK"
+    },
+    {
+      "name": "nadena.dev.modular-avatar",
+      "expression": "",
+      "define": "AMAC_MODULAR_AVATAR"
+    }
+  ],
+  "noEngineReferences": false
+}

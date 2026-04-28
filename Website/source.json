@@ -1,0 +1,11 @@
+{
+  "name": "AnimatorController MA Context",
+  "id": "com.mame8.ma-context-vpm",
+  "url": "https://mametsubu8.github.io/AnimatorController_MA_Context/vpm.json",
+  "author": "mame8",
+  "packages": {
+    "com.mame8.animator-controller-ma-context": {
+      "versions": {}
+    }
+  }
+}

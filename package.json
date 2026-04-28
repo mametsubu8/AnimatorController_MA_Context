@@ -1,0 +1,16 @@
+{
+  "name": "com.mame8.animator-controller-ma-context",
+  "version": "1.0.0",
+  "displayName": "AnimatorController MA Context",
+  "description": "アバターのAnimatorController・Modular Avatar・VRCコンポーネントの構成と設定内容をテキスト形式でコンテキスト化するUnity Editorツール",
+  "unity": "2022.3",
+  "license": "MIT",
+  "author": {
+    "name": "mame8"
+  },
+  "dependencies": {
+    "com.mame8.animator-controller-context": "3.1.0"
+  },
+  "vpmDependencies": {},
+  "keywords": ["animator", "controller", "context", "modular-avatar", "vrchat", "avatar", "serializer"]
+}
