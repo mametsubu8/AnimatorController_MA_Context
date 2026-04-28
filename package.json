@@ -6,11 +6,21 @@
   "unity": "2022.3",
   "license": "MIT",
   "author": {
-    "name": "mame8"
+    "name": "mame8",
+    "url": "https://github.com/mametsubu8"
   },
   "dependencies": {
     "com.mame8.animator-controller-context": "0.1.0"
   },
   "vpmDependencies": {},
-  "keywords": ["animator", "controller", "context", "modular-avatar", "vrchat", "avatar", "serializer"]
+  "keywords": ["animator", "controller", "context", "modular-avatar", "vrchat", "avatar", "serializer"],
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/mametsubu8/AnimatorController_MA_Context.git"
+  },
+  "bugs": {
+    "url": "https://github.com/mametsubu8/AnimatorController_MA_Context/issues"
+  },
+  "changelogUrl": "https://github.com/mametsubu8/AnimatorController_MA_Context/blob/main/CHANGELOG.md",
+  "documentationUrl": "https://github.com/mametsubu8/AnimatorController_MA_Context#readme"
 }

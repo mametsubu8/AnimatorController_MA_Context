@@ -1,5 +1,9 @@
 # AnimatorController MA Context
 
+[![License: MIT](https://img.shields.io/github/license/mametsubu8/AnimatorController_MA_Context)](LICENSE)
+[![GitHub Release](https://img.shields.io/github/v/release/mametsubu8/AnimatorController_MA_Context)](https://github.com/mametsubu8/AnimatorController_MA_Context/releases)
+[![Unity 2022.3+](https://img.shields.io/badge/Unity-2022.3%2B-blue)](https://unity.com/)
+
 ## 概要
 
 VRChatアバターの**AnimatorController・Modular Avatar・VRCコンポーネント**の構成と設定内容を、AI（Claude/GPT等）が理解しやすいテキスト形式にシリアライズするUnity Editorツールです。

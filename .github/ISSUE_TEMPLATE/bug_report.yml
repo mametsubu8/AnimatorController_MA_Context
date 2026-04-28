@@ -1,0 +1,97 @@
+name: バグ報告
+description: バグや不具合の報告
+labels: ["bug"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        バグ報告ありがとうございます。以下の情報をできるだけ詳しく記入してください。
+
+  - type: input
+    id: unity-version
+    attributes:
+      label: Unity バージョン
+      description: 使用している Unity のバージョンを入力してください
+      placeholder: "例: 2022.3.22f1"
+    validations:
+      required: true
+
+  - type: input
+    id: package-version
+    attributes:
+      label: パッケージバージョン
+      description: AnimatorController MA Context のバージョンを入力してください
+      placeholder: "例: 0.1.0"
+    validations:
+      required: true
+
+  - type: input
+    id: vrc-sdk-version
+    attributes:
+      label: VRChat Avatars SDK バージョン
+      description: VRChat Avatars SDK のバージョンを入力してください（未使用の場合は「未使用」と記入）
+      placeholder: "例: 3.7.5"
+    validations:
+      required: true
+
+  - type: input
+    id: ma-version
+    attributes:
+      label: Modular Avatar バージョン
+      description: Modular Avatar のバージョンを入力してください（未使用の場合は「未使用」と記入）
+      placeholder: "例: 1.10.5"
+    validations:
+      required: true
+
+  - type: textarea
+    id: description
+    attributes:
+      label: バグの概要
+      description: 発生している問題を簡潔に説明してください
+    validations:
+      required: true
+
+  - type: textarea
+    id: reproduction-steps
+    attributes:
+      label: 再現手順
+      description: バグを再現するための手順を記載してください
+      value: |
+        1.
+        2.
+        3.
+    validations:
+      required: true
+
+  - type: textarea
+    id: expected-behavior
+    attributes:
+      label: 期待される動作
+      description: 本来どのように動作すべきかを記載してください
+    validations:
+      required: true
+
+  - type: textarea
+    id: actual-behavior
+    attributes:
+      label: 実際の動作
+      description: 実際にはどのように動作したかを記載してください
+    validations:
+      required: true
+
+  - type: textarea
+    id: avatar-config
+    attributes:
+      label: アバター構成の詳細
+      description: 問題が発生するアバターの構成について記載してください（使用しているMAコンポーネント、PhysBoneの有無、特殊な設定など）
+    validations:
+      required: false
+
+  - type: textarea
+    id: logs
+    attributes:
+      label: コンソールログ
+      description: Unity Console に表示されたエラーメッセージやログがあれば貼り付けてください
+      render: text
+    validations:
+      required: false
