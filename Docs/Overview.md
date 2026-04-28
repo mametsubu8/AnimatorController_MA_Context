@@ -104,7 +104,7 @@ Assets/AnimatorControllerMAContext/
 
 | パッケージ | バージョン | 用途 |
 |:--|:--|:--|
-| `com.mame8.animator-controller-context` | v3.1.0 以上 | AnimatorControllerのシリアライズ |
+| `com.mame8.animator-controller-context` | v0.1.0 以上 | AnimatorControllerのシリアライズ |
 
 ### オプション依存
 

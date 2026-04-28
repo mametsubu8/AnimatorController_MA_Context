@@ -9,7 +9,7 @@
     "name": "mame8"
   },
   "dependencies": {
-    "com.mame8.animator-controller-context": "3.1.0"
+    "com.mame8.animator-controller-context": "0.1.0"
   },
   "vpmDependencies": {},
   "keywords": ["animator", "controller", "context", "modular-avatar", "vrchat", "avatar", "serializer"]

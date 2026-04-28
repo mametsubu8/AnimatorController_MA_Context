@@ -8,7 +8,7 @@
 |:--|:--|
 | Unity | 2022.3 以上 |
 | C# | .NET Standard 2.1 |
-| 依存パッケージ | `com.mame8.animator-controller-context` v3.1.0 以上 |
+| 依存パッケージ | `com.mame8.animator-controller-context` v0.1.0 以上 |
 
 ### オプション依存
 
@@ -22,7 +22,7 @@
 ### セットアップ手順
 
 1. Unity 2022.3 以上のプロジェクトを用意
-2. `com.mame8.animator-controller-context` v3.1.0 以上をインストール
+2. `com.mame8.animator-controller-context` v0.1.0 以上をインストール
 3. `Assets/AnimatorControllerMAContext/` フォルダをプロジェクトに配置
 4. 必要に応じて VRChat SDK / Modular Avatar をインストール
 5. Unity Editorでコンパイルエラーがないことを確認

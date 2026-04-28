@@ -8,7 +8,7 @@ VRChatアバターの構成（AnimatorController、Modular Avatar、VRCコンポ
 
 - Unity 2022.3+
 - C# (Editor-only assembly)
-- 依存パッケージ: `com.mame8.animator-controller-context` v3.1.0
+- 依存パッケージ: `com.mame8.animator-controller-context` v0.1.0
 - オプション依存: VRC Avatars SDK (`com.vrchat.avatars`)、Modular Avatar (`nadena.dev.modular-avatar`)
 - VRC/MAコンポーネントへのアクセスは `SerializedProperty` ベース（型名文字列判定 + プロパティ名アクセス）
 - VRC SDK / MA の assembly reference は asmdef で宣言（versionDefines: `AMAC_VRC_SDK`, `AMAC_MODULAR_AVATAR`）

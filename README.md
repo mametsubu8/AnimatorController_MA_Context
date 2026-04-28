@@ -23,7 +23,7 @@ AnimatorControllerのシリアライズには [AnimatorController Context](https
 ## 動作環境
 
 - Unity 2022.3 以上
-- [AnimatorController Context](https://github.com/mame8/AnimatorController_Context) `com.mame8.animator-controller-context` v3.1.0 以上（必須）
+- [AnimatorController Context](https://github.com/mame8/AnimatorController_Context) `com.mame8.animator-controller-context` v0.1.0 以上（必須）
 - VRChat Avatars SDK（任意・Avatar Descriptor等のシリアライズに必要）
 - Modular Avatar（任意・MAコンポーネントのシリアライズに必要）
 
