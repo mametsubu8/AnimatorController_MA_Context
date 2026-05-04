@@ -4,7 +4,7 @@ using UnityEngine;
 
 namespace AnimatorControllerMAContext.Editor
 {
-    internal class SerializeContext
+    public class SerializeContext
     {
         public ContextSerializeOptions Options { get; }
         public HashSet<AnimatorController> Controllers { get; } = new HashSet<AnimatorController>();
